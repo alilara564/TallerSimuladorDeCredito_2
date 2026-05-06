@@ -193,11 +193,31 @@ function limpiar(){
 // SIMULADOR PARTE 2 *****************************
  
 function buscarClienteCredito(){
- 
-  let cedula = recuperaraTexto("buscarCedulaCredito");
-  let clienteEncontrado = buscarCliente(cedula);
- 
-  if(clienteEncontrado != null){
-    pintarClientes();
-  }
+    // Paso 1: leer la cédula del input "buscarCedulaCredito"
+    let cedula = recuperaraTexto("buscarCedulaCredito");
+   
+    // Paso 2: buscar el cliente con buscarCliente(...)
+    let cliente = buscarCliente(cedula);
+   
+    // Paso 3: el if/else que decide qué hacer
+    if(cliente === null){
+        document.getElementById("datosClienteCredito").innerHTML = "CLIENTE NO ENCONTRADO";
+    } else {
+       
+        let datos = "<h3>Datos del Cliente</h3>" +
+                    "<p><strong>Cédula:</strong>" + cliente.cedula + "</p>" +
+                    "<p><strong>Nombre:</strong>" + cliente.nombre + "</p>" +
+                    "<p><strong>Apellido:</strong>" + cliente.apellido + "</p>" +
+                    "<p><strong>Ingresos:</strong>" + cliente.ingresos + "</p>" +
+                    "<p><strong>Egresos:</strong>" + cliente.egresos + "</p>";
+       
+        // Insertar datos en el DOM
+        document.getElementById("datosClienteCredito").innerHTML = datos;
+    }
+}
+
+function calcularCredito(){
+    let fila = document.getElementById("resultadoCredito");
+    fila.innerHTML = "";
+    
 }
