@@ -217,7 +217,6 @@ function buscarClienteCredito(){
 }
 
 function calcularCredito(){
-    let fila = document.getElementById("resultadoCredito");
-    fila.innerHTML = "";
+    // Paso 1: leer los datos de los inputs
     
 }
