@@ -21,6 +21,10 @@ function ocultarSecciones(){
   let componente3 = document.getElementById("credito");
   let listaClass3 = componente3.classList;
   listaClass3.remove("activa");
+
+  let componente4 = document.getElementById("listaCreditos");
+  let listaClass4 = componente4.classList;
+  listaClass4.remove("activa");
 }
  
  
