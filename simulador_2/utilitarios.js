@@ -1,4 +1,4 @@
-function recuperaraTexto(idComponente){
+function recuperarTexto(idComponente){
     let componente;
     let valorIngresado;
     componente=document.getElementById(idComponente);
@@ -7,12 +7,12 @@ function recuperaraTexto(idComponente){
     }
     
     function recuperarInt(idComponente){
-        let valorCaja=recuperaraTexto(idComponente);
+        let valorCaja=recuperarTexto(idComponente);
         let valorEntero=parseInt(valorCaja);
         return valorEntero;
     }
     function recuperarFloat(idComponente){
-        let valorCaja=recuperaraTexto(idComponente);
+        let valorCaja=recuperarTexto(idComponente);
         let valorFlotante=parseFloat(valorCaja);
         return valorFlotante;
     }
@@ -35,43 +35,32 @@ function recuperaraTexto(idComponente){
     }
 
 
-function calcularDisponibles(ingresos,egresos){
-    let disponibles = ingresos - egresos;
-    if(disponibles < 0){
-        disponibles = 0;
+function calcularDisponible(ingresos, arriendo, alimentacion, varios) {
+    let egresos = arriendo + alimentacion + varios;
+    let disponible = ingresos - egresos;
+    if (disponible < 0) {
+        return 0;
     }
-    return disponibles;
+    return disponible;
 }
 
-function calcularCapacidadDePago(monto_disponible){
-    let capacidad_pago = monto_disponible / 2;
-    return capacidad_pago;
+function calcularCapacidadPago(montoDisponible) {
+    return montoDisponible * 0.5;
 }
 
-function calcularInteresSimple(monto,taza, tiempo){
-    let interes = monto * taza * (tiempo / 100);
-    return interes;
+function calcularInteresSimple(monto, tasa, plazoAnios) {
+    return plazoAnios * monto * (tasa / 100);
 }
 
-function totalPagar(monto, interes){
-    let total = monto + (interes + 100);
-    return total;
+function calcularTotalPagar(monto, interes) {
+    return monto + interes + 100;
 }
 
-function calcularCuotaMensual(total, tiempo){
-    let cuota_mensual = total / (tiempo * 12);
-    return cuota_mensual;
+function calcularCuotaMensual(total, plazoAnios) {
+    let meses = plazoAnios * 12;
+    return total / meses;
 }
 
-function aprobarCredito(capacidad_pago, cuota_mensual){
-    if(capacidad_pago >= cuota_mensual){
-        return "Crédito aprobado";
-    } else {
-        return "Crédito rechazado";
-    }
-}
-
-function mostrarEnSpan(id_span, valor){
-    let elemento = document.getElementById(id_span);
-    elemento.innerText = parseFloat(valor).toFixed(2);
+function aprobarCredito(capacidadPago, cuotaMensual) {
+    return capacidadPago >= cuotaMensual;
 }
