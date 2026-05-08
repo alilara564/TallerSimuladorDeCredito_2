@@ -397,7 +397,3 @@ function calcularCredito() {
 
   btnSolicitar.disabled = !aprobado;
 }
-
-
-
-//mostrarSeccion("parametros");
