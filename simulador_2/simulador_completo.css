@@ -98,6 +98,13 @@ button:hover {
   box-shadow: 0 5px 12px rgba(0,0,0,0.2);
 }
 
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 /* TABLAS */
 table {
   width: 100%;
